@@ -50,6 +50,13 @@ async def delit(callback : CallbackQuery):
      new_inline_kb = await kb.inline_list2(current_list)
      await callback.message.edit_reply_markup(reply_markup = new_inline_kb)
 
+@router.callback_query(F.data.startswith("unchecked_"))
+async def name(callback : CallbackQuery):
+    current_list = callback.message.reply_markup.inline_keyboard
+    pressed_button_info = callback.data.split('_')
+    edit_row_number = int(pressed_button_info[1])
+
+    await callback.answer(current_list[edit_row_number - 1][0].text)
 
 @router.callback_query(F.data.startswith("tick_"))
 # @router.callback_query()
