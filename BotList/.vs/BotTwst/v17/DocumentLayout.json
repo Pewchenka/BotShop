@@ -1,22 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Arsenii\\Desktop\\BotShop\\BotList\\",
+  "WorkspaceRootPath": "C:\\Users\\Arsenii\\Desktop\\BotShop\\BotShop\\BotList\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{63E92E93-7E31-4A68-B887-0026FF1E3FE8}|BotTwst\\BotList.pyproj|C:\\Users\\Arsenii\\Desktop\\BotShop\\BotList\\BotTwst\\app\\handlers.py||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{63E92E93-7E31-4A68-B887-0026FF1E3FE8}|BotTwst\\BotList.pyproj|solutionrelative:BotTwst\\app\\handlers.py||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63E92E93-7E31-4A68-B887-0026FF1E3FE8}|BotTwst\\BotList.pyproj|C:\\Users\\Arsenii\\Desktop\\BotShop\\BotList\\BotTwst\\app\\keyboards.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "AbsoluteMoniker": "D:0:0:{63E92E93-7E31-4A68-B887-0026FF1E3FE8}|BotTwst\\BotList.pyproj|C:\\Users\\Arsenii\\Desktop\\BotShop\\BotShop\\BotList\\BotTwst\\app\\keyboards.py||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{63E92E93-7E31-4A68-B887-0026FF1E3FE8}|BotTwst\\BotList.pyproj|solutionrelative:BotTwst\\app\\keyboards.py||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{63E92E93-7E31-4A68-B887-0026FF1E3FE8}|BotTwst\\BotList.pyproj|C:\\Users\\Arsenii\\Desktop\\BotShop\\BotList\\BotTwst\\run.py||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{63E92E93-7E31-4A68-B887-0026FF1E3FE8}|BotTwst\\BotList.pyproj|solutionrelative:BotTwst\\run.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{63E92E93-7E31-4A68-B887-0026FF1E3FE8}|BotTwst\\BotList.pyproj|C:\\Users\\Arsenii\\Desktop\\BotShop\\BotShop\\BotList\\BotTwst\\config.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{63E92E93-7E31-4A68-B887-0026FF1E3FE8}|BotTwst\\BotList.pyproj|solutionrelative:BotTwst\\config.py||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{63E92E93-7E31-4A68-B887-0026FF1E3FE8}|BotTwst\\BotList.pyproj|C:\\Users\\Arsenii\\Desktop\\BotShop\\BotList\\BotTwst\\config.py||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{63E92E93-7E31-4A68-B887-0026FF1E3FE8}|BotTwst\\BotList.pyproj|solutionrelative:BotTwst\\config.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{63E92E93-7E31-4A68-B887-0026FF1E3FE8}|BotTwst\\BotList.pyproj|C:\\Users\\Arsenii\\Desktop\\BotShop\\BotShop\\BotList\\BotTwst\\app\\handlers.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{63E92E93-7E31-4A68-B887-0026FF1E3FE8}|BotTwst\\BotList.pyproj|solutionrelative:BotTwst\\app\\handlers.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63E92E93-7E31-4A68-B887-0026FF1E3FE8}|BotTwst\\BotList.pyproj|C:\\Users\\Arsenii\\Desktop\\BotShop\\BotShop\\BotList\\BotTwst\\run.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{63E92E93-7E31-4A68-B887-0026FF1E3FE8}|BotTwst\\BotList.pyproj|solutionrelative:BotTwst\\run.py||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,27 +26,28 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "config.py",
-              "DocumentMoniker": "C:\\Users\\Arsenii\\Desktop\\BotShop\\BotList\\BotTwst\\config.py",
+              "DocumentMoniker": "C:\\Users\\Arsenii\\Desktop\\BotShop\\BotShop\\BotList\\BotTwst\\config.py",
               "RelativeDocumentMoniker": "BotTwst\\config.py",
-              "ToolTip": "C:\\Users\\Arsenii\\Desktop\\BotShop\\BotList\\BotTwst\\config.py",
+              "ToolTip": "C:\\Users\\Arsenii\\Desktop\\BotShop\\BotShop\\BotList\\BotTwst\\config.py",
               "RelativeToolTip": "BotTwst\\config.py",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAA1AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-08-25T10:30:47.054Z"
+              "WhenOpened": "2024-08-25T10:30:47.054Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "run.py",
-              "DocumentMoniker": "C:\\Users\\Arsenii\\Desktop\\BotShop\\BotList\\BotTwst\\run.py",
+              "DocumentMoniker": "C:\\Users\\Arsenii\\Desktop\\BotShop\\BotShop\\BotList\\BotTwst\\run.py",
               "RelativeDocumentMoniker": "BotTwst\\run.py",
-              "ToolTip": "C:\\Users\\Arsenii\\Desktop\\BotShop\\BotList\\BotTwst\\run.py",
+              "ToolTip": "C:\\Users\\Arsenii\\Desktop\\BotShop\\BotShop\\BotList\\BotTwst\\run.py",
               "RelativeToolTip": "BotTwst\\run.py",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
@@ -54,26 +55,25 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "handlers.py",
-              "DocumentMoniker": "C:\\Users\\Arsenii\\Desktop\\BotShop\\BotList\\BotTwst\\app\\handlers.py",
+              "DocumentMoniker": "C:\\Users\\Arsenii\\Desktop\\BotShop\\BotShop\\BotList\\BotTwst\\app\\handlers.py",
               "RelativeDocumentMoniker": "BotTwst\\app\\handlers.py",
-              "ToolTip": "C:\\Users\\Arsenii\\Desktop\\BotShop\\BotList\\BotTwst\\app\\handlers.py",
+              "ToolTip": "C:\\Users\\Arsenii\\Desktop\\BotShop\\BotShop\\BotList\\BotTwst\\app\\handlers.py",
               "RelativeToolTip": "BotTwst\\app\\handlers.py",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAAADQAAAA1AAAAAAAAAA==",
+              "ViewState": "AgIAAEYAAAAAAAAAAIAwwFsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-08-25T10:31:44.363Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-25T10:31:44.363Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "keyboards.py",
-              "DocumentMoniker": "C:\\Users\\Arsenii\\Desktop\\BotShop\\BotList\\BotTwst\\app\\keyboards.py",
+              "DocumentMoniker": "C:\\Users\\Arsenii\\Desktop\\BotShop\\BotShop\\BotList\\BotTwst\\app\\keyboards.py",
               "RelativeDocumentMoniker": "BotTwst\\app\\keyboards.py",
-              "ToolTip": "C:\\Users\\Arsenii\\Desktop\\BotShop\\BotList\\BotTwst\\app\\keyboards.py",
+              "ToolTip": "C:\\Users\\Arsenii\\Desktop\\BotShop\\BotShop\\BotList\\BotTwst\\app\\keyboards.py",
               "RelativeToolTip": "BotTwst\\app\\keyboards.py",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAABMAAAAAAAAAA==",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAwwCYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2024-08-25T10:31:57.948Z",
               "EditorCaption": ""

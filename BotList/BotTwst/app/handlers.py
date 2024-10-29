@@ -15,8 +15,8 @@ import logging
 
 router = Router()
 
-class Lis(StatesGroup):
-    list = State()
+class DialogStatus(StatesGroup):
+    wait_items = State()
 
 
 @router.message(CommandStart())
@@ -25,43 +25,24 @@ async def cmd_start(message: Message):
                       reply_markup=kb.main)
 
 @router.message(F.text == "New list")
-async def list_one(message: Message, state: FSMContext):
-    await state.set_state(Lis.list)
+async def process_new_list(message: Message, state: FSMContext):
+    await state.set_state(DialogStatus.wait_items)
     await message.answer("Write your products separating by paragraphs")
 
-@router.message(Lis.list)
-async def list_two(message: Message, state: FSMContext):
+@router.message(DialogStatus.wait_items)
+async def process_list_items(message: Message, state: FSMContext):
     await state.update_data(list=message.text)
     data = await state.get_data()   
     products = data["list"].splitlines()
     inline_kb = await kb.inline_list(products)
     await message.answer("Your list", reply_markup=inline_kb)
     await state.clear()
-
-@router.callback_query(F.data.startswith("del_"))
-async def delit(callback : CallbackQuery):
-     current_list = callback.message.reply_markup.inline_keyboard
-
-     pressed_button_info = callback.data.split('_')
-     edit_row_number = int(pressed_button_info[1])
-
-     del current_list[edit_row_number - 1]
-
-     new_inline_kb = await kb.inline_list2(current_list)
-     await callback.message.edit_reply_markup(reply_markup = new_inline_kb)
-
-@router.callback_query(F.data.startswith("unchecked_"))
-async def name(callback : CallbackQuery):
-    current_list = callback.message.reply_markup.inline_keyboard
-    pressed_button_info = callback.data.split('_')
-    edit_row_number = int(pressed_button_info[1])
-
-    await callback.answer(current_list[edit_row_number - 1][0].text)
+######################################################3
+#######################################################
 
 @router.callback_query(F.data.startswith("tick_"))
-# @router.callback_query()
-async def tick(callback : CallbackQuery):
-    logging.debug("callback data for deubug \n\n{}".format(callback))
+async def cb_process_check(callback : CallbackQuery):
+    logging.debug("callback data for deubug - check \n\n{}".format(callback))
     current_list = callback.message.reply_markup.inline_keyboard
 
     # Just for  DEBUG
@@ -72,20 +53,63 @@ async def tick(callback : CallbackQuery):
         )) for row in current_list
     ]
 
-    # TODO  Move to separate Class
+    
     pressed_button_info = callback.data.split('_')
     edit_row_number = int(pressed_button_info[1])
     logging.debug('Pressed button: {} in row {}'.format(pressed_button_info[0], edit_row_number ))
-    # Checking current item status: checked or unchecked
-    if  current_list[edit_row_number - 1][0].callback_data == 'unchecked_{}'.format(edit_row_number):
-        current_list[edit_row_number - 1][0].callback_data  = 'checked_{}'.format(edit_row_number)
-        current_list[edit_row_number - 1][0].text = "✅" + current_list[edit_row_number - 1][0].text
-    elif  current_list[edit_row_number - 1][0].callback_data  == 'checked_{}'.format(edit_row_number):
-        current_list[edit_row_number - 1][0].callback_data  = 'unchecked_{}'.format(edit_row_number)
-        current_list[edit_row_number - 1][0].text = current_list[edit_row_number - 1][0].text[1:]
 
-    logging.debug('current_list is below:{} \n'.format(type(current_list)))
-    logging.debug(current_list)
-    new_inline_kb = await kb.inline_list2(current_list)
+    items_list = ListItems(callback.message.reply_markup.inline_keyboard)
+    items_list.switch_checked(edit_row_number)
+    
+
+    logging.debug('current_list is below:{} \n'.format(type(items_list.list_of_rows)))
+    logging.debug(items_list.list_of_rows)
+
+    new_inline_kb = await kb.inline_list2(items_list.list_of_rows)
     await callback.message.edit_reply_markup(reply_markup = new_inline_kb)
+
+@router.callback_query(F.data.startswith("del_"))
+async def cb_process_delete(callback : CallbackQuery):
+    logging.debug("callback data for deubug - delete \n\n{}".format(callback))
+
+    pressed_button_info = callback.data.split('_')
+    edit_row_number = int(pressed_button_info[1])
+    logging.debug('Pressed button: {} in row {}'.format(pressed_button_info[0], edit_row_number ))
+
+    items_list = ListItems(callback.message.reply_markup.inline_keyboard)
+    items_list.remove_item(edit_row_number)
+
+    new_inline_kb = await kb.inline_list2(items_list.list_of_rows)
+    await callback.message.edit_reply_markup(reply_markup = new_inline_kb)
+    
+@router.callback_query(F.data.startswith("unchecked_"))
+async def name(callback : CallbackQuery):
+    current_list = callback.message.reply_markup.inline_keyboard
+    pressed_button_info = callback.data.split('_')
+    edit_row_number = int(pressed_button_info[1])
+
+    await callback.answer(current_list[edit_row_number - 1][0].text)
+
+#############################################################
+class ListItems:
+    def __init__(self, _items) -> None:
+        self.list_of_rows = _items
+    
+    def switch_checked(self, _row_number):
+        """
+        Set checked ✅  in string if not set yet
+        """
+        # Checking current item status: checked or unchecked
+        if   self.list_of_rows[_row_number - 1][0].callback_data == 'unchecked_{}'.format(_row_number):
+             self.list_of_rows[_row_number - 1][0].callback_data  = 'checked_{}'.format(_row_number)
+             self.list_of_rows[_row_number - 1][0].text = "✅" +  self.list_of_rows[_row_number - 1][0].text
+        elif   self.list_of_rows[_row_number - 1][0].callback_data  == 'checked_{}'.format(_row_number):
+             self.list_of_rows[_row_number - 1][0].callback_data  = 'unchecked_{}'.format(_row_number)
+             self.list_of_rows[_row_number - 1][0].text =  self.list_of_rows[_row_number - 1][0].text[1:]
+    
+    def remove_item(self, _row_number):
+        """
+        Remove item from list (remove one string with buttons)
+        """
+        del self.list_of_rows[_row_number]
     
