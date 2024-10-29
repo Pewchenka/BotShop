@@ -18,7 +18,6 @@ router = Router()
 class DialogStatus(StatesGroup):
     wait_items = State()
 
-
 @router.message(CommandStart())
 async def cmd_start(message: Message):
     await message.answer("Hello, I'm a shopping list bot.\n If you need create a new list or edit existing, use button bellow \n For other information use /help",
@@ -37,6 +36,7 @@ async def process_list_items(message: Message, state: FSMContext):
     inline_kb = await kb.inline_list(products)
     await message.answer("Your list", reply_markup=inline_kb)
     await state.clear()
+
 ######################################################3
 #######################################################
 
@@ -52,7 +52,6 @@ async def cb_process_check(callback : CallbackQuery):
         row[2].callback_data
         )) for row in current_list
     ]
-
     
     pressed_button_info = callback.data.split('_')
     edit_row_number = int(pressed_button_info[1])
@@ -61,7 +60,6 @@ async def cb_process_check(callback : CallbackQuery):
     items_list = ListItems(callback.message.reply_markup.inline_keyboard)
     items_list.switch_checked(edit_row_number)
     
-
     logging.debug('current_list is below:{} \n'.format(type(items_list.list_of_rows)))
     logging.debug(items_list.list_of_rows)
 
@@ -81,16 +79,25 @@ async def cb_process_delete(callback : CallbackQuery):
 
     new_inline_kb = await kb.inline_list2(items_list.list_of_rows)
     await callback.message.edit_reply_markup(reply_markup = new_inline_kb)
-    
+
 @router.callback_query(F.data.startswith("unchecked_"))
+# Tried to do it with ("unchecked_" or "checked_"), but couldn't, so did it with 2 different def
 async def name(callback : CallbackQuery):
     current_list = callback.message.reply_markup.inline_keyboard
     pressed_button_info = callback.data.split('_')
     edit_row_number = int(pressed_button_info[1])
-
+    await callback.answer(current_list[edit_row_number - 1][0].text)
+    
+@router.callback_query(F.data.startswith("checked_"))
+# Tried to do it with ("unchecked_" or "checked_"), but couldn't, so did it with 2 different def
+async def name(callback : CallbackQuery):
+    current_list = callback.message.reply_markup.inline_keyboard
+    pressed_button_info = callback.data.split('_')
+    edit_row_number = int(pressed_button_info[1])
     await callback.answer(current_list[edit_row_number - 1][0].text)
 
 #############################################################
+
 class ListItems:
     def __init__(self, _items) -> None:
         self.list_of_rows = _items
