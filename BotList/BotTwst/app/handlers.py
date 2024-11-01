@@ -118,5 +118,12 @@ class ListItems:
         """
         Remove item from list (remove one string with buttons)
         """
-        del self.list_of_rows[_row_number]
-    
+        del self.list_of_rows[_row_number-1]
+
+        for i, row in enumerate(self.list_of_rows, start=1):
+            if row[0].callback_data.startswith("unchecked_"):
+                row[0].callback_data = f'unchecked_{i}'
+            elif row[0].callback_data.startswith("checked_"):
+                row[0].callback_data = f'checked_{i}'
+            row[1].callback_data = f'tick_{i}'
+            row[2].callback_data = f'del_{i}'
