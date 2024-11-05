@@ -72,6 +72,7 @@ async def cb_process_delete(callback : CallbackQuery):
 
     pressed_button_info = callback.data.split('_')
     edit_row_number = int(pressed_button_info[1])
+    
     logging.debug('Pressed button: {} in row {}'.format(pressed_button_info[0], edit_row_number ))
 
     items_list = ListItems(callback.message.reply_markup.inline_keyboard)
@@ -127,3 +128,6 @@ class ListItems:
                 row[0].callback_data = f'checked_{i}'
             row[1].callback_data = f'tick_{i}'
             row[2].callback_data = f'del_{i}'
+
+    def sort_list():
+        pass
