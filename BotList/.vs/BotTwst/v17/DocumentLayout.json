@@ -50,7 +50,8 @@
               "RelativeToolTip": "BotTwst\\run.py",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-08-22T12:36:58.508Z"
+              "WhenOpened": "2024-08-22T12:36:58.508Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -60,7 +61,7 @@
               "RelativeDocumentMoniker": "BotTwst\\app\\handlers.py",
               "ToolTip": "C:\\Users\\Arsenii\\Desktop\\BotShop\\BotShop\\BotList\\BotTwst\\app\\handlers.py",
               "RelativeToolTip": "BotTwst\\app\\handlers.py",
-              "ViewState": "AgIAADkAAAAAAAAAAAAAAGUAAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2024-08-25T10:31:44.363Z",
               "EditorCaption": ""
@@ -73,9 +74,10 @@
               "RelativeDocumentMoniker": "BotTwst\\app\\keyboards.py",
               "ToolTip": "C:\\Users\\Arsenii\\Desktop\\BotShop\\BotShop\\BotList\\BotTwst\\app\\keyboards.py",
               "RelativeToolTip": "BotTwst\\app\\keyboards.py",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAwwA4AAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAswBkAAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-08-25T10:31:57.948Z"
+              "WhenOpened": "2024-08-25T10:31:57.948Z",
+              "EditorCaption": ""
             }
           ]
         }

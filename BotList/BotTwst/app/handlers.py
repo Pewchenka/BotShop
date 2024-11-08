@@ -36,8 +36,8 @@ async def process_list_items(message: Message, state: FSMContext):
     inline_kb = await kb.inline_list(products)
     await message.answer("Your list", reply_markup=inline_kb)
     await state.clear()
-
-######################################################3
+    
+#######################################################
 #######################################################
 
 @router.callback_query(F.data.startswith("tick_"))
@@ -97,30 +97,13 @@ async def name(callback : CallbackQuery):
     edit_row_number = int(pressed_button_info[1])
     await callback.answer(current_list[edit_row_number - 1][0].text)
 
-#############################################################
+#######################################################
 
 class ListItems:
     def __init__(self, _items) -> None:
         self.list_of_rows = _items
     
-    def switch_checked(self, _row_number):
-        """
-        Set checked ✅  in string if not set yet
-        """
-        # Checking current item status: checked or unchecked
-        if   self.list_of_rows[_row_number - 1][0].callback_data == 'unchecked_{}'.format(_row_number):
-             self.list_of_rows[_row_number - 1][0].callback_data  = 'checked_{}'.format(_row_number)
-             self.list_of_rows[_row_number - 1][0].text = "✅" +  self.list_of_rows[_row_number - 1][0].text
-        elif   self.list_of_rows[_row_number - 1][0].callback_data  == 'checked_{}'.format(_row_number):
-             self.list_of_rows[_row_number - 1][0].callback_data  = 'unchecked_{}'.format(_row_number)
-             self.list_of_rows[_row_number - 1][0].text =  self.list_of_rows[_row_number - 1][0].text[1:]
-    
-    def remove_item(self, _row_number):
-        """
-        Remove item from list (remove one string with buttons)
-        """
-        del self.list_of_rows[_row_number-1]
-
+    def _renumerate(self):
         for i, row in enumerate(self.list_of_rows, start=1):
             if row[0].callback_data.startswith("unchecked_"):
                 row[0].callback_data = f'unchecked_{i}'
@@ -129,5 +112,38 @@ class ListItems:
             row[1].callback_data = f'tick_{i}'
             row[2].callback_data = f'del_{i}'
 
-    def sort_list():
-        pass
+    def switch_checked(self, _row_number):
+        """
+        Set checked ✅  in string if not set yet
+        """
+        def _buid_sortkey(array_member):
+            """
+            Just build and returns the key for sorting
+            """
+            return array_member[0].text
+
+        # Checking current item status: checked or unchecked
+        if   self.list_of_rows[_row_number - 1][0].callback_data == 'unchecked_{}'.format(_row_number):
+             self.list_of_rows[_row_number - 1][0].callback_data  = 'checked_{}'.format(_row_number)
+             self.list_of_rows[_row_number - 1][0].text = "✅" +  self.list_of_rows[_row_number - 1][0].text
+        elif   self.list_of_rows[_row_number - 1][0].callback_data  == 'checked_{}'.format(_row_number):
+             self.list_of_rows[_row_number - 1][0].callback_data  = 'unchecked_{}'.format(_row_number)
+             self.list_of_rows[_row_number - 1][0].text =  self.list_of_rows[_row_number - 1][0].text[1:]
+        
+        self.list_of_rows.sort(key=_buid_sortkey)
+        self._renumerate()
+    
+    def remove_item(self, _row_number):
+        
+        def _buid_sortkey(array_member):
+            """
+            Just build and returns the key for sorting
+            """
+            return array_member[0].text
+
+        """
+        Remove item from list (remove one string with buttons)
+        """
+        del self.list_of_rows[_row_number-1]
+        self._renumerate()
+        self.list_of_rows.sort(key=_buid_sortkey)

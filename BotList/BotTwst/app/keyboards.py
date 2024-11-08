@@ -5,7 +5,6 @@ import logging
 
 main = ReplyKeyboardMarkup(keyboard=[
 	[KeyboardButton(text="New list")],
-	[KeyboardButton(text="Edit list")]
 	],
 						   resize_keyboard=True,
 						   input_field_placeholder="Chose an option")
