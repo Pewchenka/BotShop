@@ -23,6 +23,10 @@ async def cmd_start(message: Message):
     await message.answer("Hello, I'm a shopping list bot.\n If you need create a new list or edit existing, use button bellow \n For other information use /help",
                       reply_markup=kb.main)
 
+@router.message(Command("help"))
+async def help_command(message: Message):
+    await message.answer("Test of help command", reply_markup=kb.main)
+
 @router.message(F.text == "New list")
 async def process_new_list(message: Message, state: FSMContext):
     await state.set_state(DialogStatus.wait_items)
