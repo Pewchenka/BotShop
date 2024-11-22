@@ -17,7 +17,7 @@ async def inline_list(products, ticked=False):
 		if ticked:
 			tic_text = "✅"
 		else:
-			tic_text = "❌"
+			tic_text = "✅"
 
 		keyboard.add(InlineKeyboardButton(text=product, callback_data=f"unchecked_{raw}"))
 		keyboard.add(InlineKeyboardButton(text=tic_text, callback_data=f"tick_{raw}"))

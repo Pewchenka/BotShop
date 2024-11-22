@@ -20,12 +20,12 @@ class DialogStatus(StatesGroup):
 
 @router.message(CommandStart())
 async def cmd_start(message: Message):
-    await message.answer("Hello, I'm a shopping list bot.\n If you need create a new list or edit existing, use button bellow \n For other information use /help",
+    await message.answer("Hello, I'm a shopping list bot.\nIf you need create a new list or edit existing, use button bellow \nFor other information use /help",
                       reply_markup=kb.main)
 
 @router.message(Command("help"))
 async def help_command(message: Message):
-    await message.answer("Test of help command", reply_markup=kb.main)
+    await message.answer("The bot allows you to create shopping/task lists \nCommand list: \n/help - calls this message, with information about all commands and basic instructions for use \n/start - command to start interacting with the bot \nSend 'New list' or use button next to the message box - allows you to create a new list, to do this, you need to write the elements of the list separating them with a paragraph \n\nInstructions. \nTo create a new list, write 'New list' or use button next to the message box, then write your products/tasks separating them with a paragraph, then send a message \nThe bot will send you a list. If the name does not fit in the first section, you can click on it to see its full name. The second button (✅) is responsible for marking your product, when you click on it, it will mark your product as checked. The third button (🗑) allows you to delete a separate section from the list. \nAt a time, you can have an unlimited number of lists. If you want to use the previous list as a basis, copy your message with the previous list. To delete an entire list, select the message with the list and delete it by standard Telegram function. \nThe bot automatically sorts your sections alphabetically and by marked/unmarked order. \nTo use the bot with multiple people, add it to a group chat. ", reply_markup=kb.main)
 
 @router.message(F.text == "New list")
 async def process_new_list(message: Message, state: FSMContext):
