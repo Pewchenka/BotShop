@@ -10,9 +10,9 @@ ADD requirements.txt /app
 RUN pip install --trusted-host pypi.python.org -r requirements.txt
 
 # Copy the current directory contents into the container at /app
-ADD ../run.py /app
-ADD ../config.py /app
-ADD ../app/ /app
+ADD ./run.py /app
+ADD ./config.py /app
+COPY ../app app/
 
 # Make port 8443 available to the world outside this container
 #EXPOSE 8443
