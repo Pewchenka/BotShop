@@ -1,12 +1,8 @@
 services:
   bot_service:
     profiles: [aws]
-    build:
-      context: .
-      additional_contexts:
-        - source=https://github.com/Pewchenka/BotShop.git
     image: bot:server
-    #build: https://github.com/Pewchenka/BotShop.git#main/BotList/BotTwst/docker
+    build: https://github.com/Pewchenka/BotShop.git
     env_file:
       - ./.env  
     restart: always
