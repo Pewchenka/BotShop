@@ -1,16 +1,18 @@
-﻿from email import message
-from re import X
+﻿#from email import message
+#from re import X
+#InlineKeyboardButton, InlineKeyboardMarkup, 
+#from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
+#from aiogram.utils import keyboard
+#from aiogram.utils.keyboard import ReplyKeyboardBuilder, InlineKeyboardBuilder
+
 from aiogram import F, Router
 from aiogram.filters import CommandStart, Command
-from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, CallbackQuery
+from aiogram.types import Message, CallbackQuery
 from aiogram.fsm.state import StatesGroup, State
 from aiogram.fsm.context import FSMContext
 
 import app.keyboards as kb
 
-from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
-from aiogram.utils import keyboard
-from aiogram.utils.keyboard import ReplyKeyboardBuilder, InlineKeyboardBuilder
 import logging
 
 router = Router()
@@ -40,7 +42,7 @@ async def process_list_items(message: Message, state: FSMContext):
     inline_kb = await kb.inline_list(products)
     await message.answer("Your list", reply_markup=inline_kb)
     await state.clear()
-    
+        
 #######################################################
 #######################################################
 
@@ -138,7 +140,6 @@ class ListItems:
         self._renumerate()
     
     def remove_item(self, _row_number):
-        
         def _buid_sortkey(array_member):
             """
             Just build and returns the key for sorting

@@ -1,6 +1,9 @@
-﻿from aiogram.types import InlineKeyboardButton, ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMarkup
-from aiogram.utils import keyboard
-from aiogram.utils.keyboard import ReplyKeyboardBuilder, InlineKeyboardBuilder
+﻿#from aiogram.utils import keyboard
+#ReplyKeyboardBuilder,
+#, InlineKeyboardMarkup
+
+from aiogram.types import InlineKeyboardButton, ReplyKeyboardMarkup, KeyboardButton
+from aiogram.utils.keyboard import InlineKeyboardBuilder
 import logging
 
 main = ReplyKeyboardMarkup(keyboard=[
