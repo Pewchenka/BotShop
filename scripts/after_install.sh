@@ -1,1 +1,3 @@
-after_install.sh
+#!/bin/bash
+cd /home/ubuntu/BotShop 
+git pull
