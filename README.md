@@ -1,6 +1,7 @@
 # BotShop
 
 ## Development
+Secrets must be stored in `.env`  which s  not part of repository (see `.env.example`)
 For local development use `docker compose`
 ```bash
 docker compose --profile local up
