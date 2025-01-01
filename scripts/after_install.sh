@@ -1,3 +1,3 @@
 #!/bin/bash
 cd /home/ubuntu/BotShop 
-git pull
+cp docker-compose.yaml ../botlist/
