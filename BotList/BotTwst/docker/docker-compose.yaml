@@ -1,0 +1,7 @@
+services:
+  bot_service:
+    image: bot:local
+    build: https://github.com/Pewchenka/BotShop.git#main/BotList/BotTwst/docker
+    env_file:
+      - .env  
+    restart: always
