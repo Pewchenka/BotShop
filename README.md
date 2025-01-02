@@ -25,4 +25,6 @@ $ docker compose --profile aws up -d
 $ # one local command
 $ ssh ubuntu@13.251.202.135 "cd botlist;docker compose --profile aws up -d"
 ```
-Usefull link about AWS and github integration https://loisthash.medium.com/ci-cd-from-github-to-aws-ec2-667e6c4f4ffc
+Usefull link about AWS and github integration:   
+https://loisthash.medium.com/ci-cd-from-github-to-aws-ec2-667e6c4f4ffc  
+https://aws.amazon.com/blogs/devops/integrating-with-github-actions-ci-cd-pipeline-to-deploy-a-web-app-to-amazon-ec2/
