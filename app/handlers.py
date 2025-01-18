@@ -32,6 +32,9 @@ async def process_list_items(message: Message, state: FSMContext):
     await state.update_data(list=message.text)
     data = await state.get_data()   
     products = data["list"].splitlines()
+
+    products.sort()
+
     inline_kb = await kb.inline_list(products)
     await message.answer("Your list", reply_markup=inline_kb)
     await state.clear()
