@@ -1,11 +1,4 @@
-﻿#from email import message
-#from re import X
-#InlineKeyboardButton, InlineKeyboardMarkup, 
-#from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
-#from aiogram.utils import keyboard
-#from aiogram.utils.keyboard import ReplyKeyboardBuilder, InlineKeyboardBuilder
-
-from aiogram import F, Router
+﻿from aiogram import F, Router
 from aiogram.filters import CommandStart, Command
 from aiogram.types import Message, CallbackQuery
 from aiogram.fsm.state import StatesGroup, State
