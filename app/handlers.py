@@ -1,4 +1,4 @@
-﻿from aiogram import F, Router
+from aiogram import F, Router
 from aiogram.filters import CommandStart, Command
 from aiogram.types import Message, CallbackQuery
 from aiogram.fsm.state import StatesGroup, State
@@ -32,6 +32,9 @@ async def process_list_items(message: Message, state: FSMContext):
     await state.update_data(list=message.text)
     data = await state.get_data()   
     products = data["list"].splitlines()
+
+    products.sort()
+
     inline_kb = await kb.inline_list(products)
     await message.answer("Your list", reply_markup=inline_kb)
     await state.clear()

@@ -1,4 +1,6 @@
 # BotShop
+## Usage
+Just add  bot https://t.me/listpokup_bot in your telegram group and ajust admin privelegies  
 
 ## Development
 Secrets must be stored in `.env`  which s  not part of repository (see `.env.example`)
